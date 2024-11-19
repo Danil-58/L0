@@ -1,0 +1,17 @@
+app:
+  name: 'L0'
+  version: '1.0.0'
+postgres:
+  host: 'localhost'
+  port: '5433'
+  user: 'postgres'
+  password: 'qwerty'
+  name: 'l0'
+  pg_driver : 'pq'
+  schema : 'public'
+http:
+  host: 'localhost'
+  port: '8080'
+kafka:
+  bootstrap_servers: 'localhost:9092' 
+  topic: 'orders' 
