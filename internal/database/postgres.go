@@ -17,13 +17,13 @@ func Connect(cfg *config.DB) (*pgxpool.Pool, error) {
 	conn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s",
 		cfg.User, cfg.Password, cfg.Host, cfg.Port, cfg.DBName)
 
-
+	// Подключаемся к БД
 	pool, err := pgxpool.Connect(context.Background(), conn)
 	if err != nil {
 		return nil, err
 	}
 
-
+	// Устанавливаем search_path
 	_, err = pool.Exec(context.Background(), fmt.Sprintf("SET search_path TO %s", cfg.Schema))
 	if err != nil {
 		pool.Close() 
